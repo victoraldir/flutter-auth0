@@ -52,7 +52,7 @@ class WebAuth {
             '$bundleIdentifier://${this.domain}/$platformName/$bundleIdentifier/callback';
         String expectedState = state != null ? state : _state;
         String authorizeUrl =
-            'https://${this.domain}/authorize?scope=$scope&audience=$audience&clientId=${this.clientId}&response_type=code&redirect_uri=$redirectUri&state=$expectedState&code_challenge_method=$codeChallengeMethod&code_challenge=$codeChallenge&client_id=${this.clientId}&auth0Client=$codeChallenge';
+            'https://${this.domain}/authorize?scope=$scope&audience=$audience&clientId=${this.clientId}&response_type=code&redirect_uri=$redirectUri&state=$expectedState&code_challenge_method=$codeChallengeMethod&code_challenge=$codeChallenge&client_id=${this.clientId}';
         String accessToken = await _channel
             .invokeMethod('showUrl', {'url': Uri.encodeFull(authorizeUrl)});
         return exchange(
